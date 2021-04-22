@@ -9,10 +9,12 @@ WORKDIR /api
 
 COPY go.mod .
 COPY go.sum .
-RUN go mod download
+RUN go mod download && \
+  go get github.com/jessevdk/go-assets-builder
 
 COPY . .
-RUN go build -o ./app ./main.go
+RUN go generate client/client.go && \
+  go build -o ./app ./main.go
 
 FROM alpine:latest
 
@@ -34,7 +36,6 @@ RUN chmod 777 /config; \
 
 WORKDIR /api
 COPY --from=builder /api/app .
-COPY client ./client
 COPY webassets ./webassets
 
 EXPOSE 8080

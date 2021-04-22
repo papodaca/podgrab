@@ -12,6 +12,7 @@ require (
 	github.com/gorilla/websocket v1.4.2
 	github.com/grokify/html-strip-tags-go v0.0.0-20200923094847-079d207a09f1
 	github.com/jasonlvhit/gocron v0.0.1
+	github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15
 	github.com/joho/godotenv v1.3.0
 	github.com/microcosm-cc/bluemonday v1.0.4
 	github.com/satori/go.uuid v1.2.0
